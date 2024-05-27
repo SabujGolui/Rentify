@@ -19,11 +19,8 @@ app.use("/", (req, res) => {
   res.send("Welcome");
 });
 
-app.options("/api", cors());
-app.options(
-  "https://rentify-server-git-main-sabuj-goluis-projects.vercel.app/api",
-  cors()
-);
+app.options(cors());
+// app.options("https://rentify-server-ruddy.vercel.app/", cors());
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
