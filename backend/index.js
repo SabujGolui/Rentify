@@ -21,7 +21,7 @@ app.use("/", (req, res) => {
 
 app.options("/api", cors());
 app.options(
-  "https://rentify-server-hfea6kyyj-sabuj-goluis-projects.vercel.app/api",
+  "https://rentify-server-git-main-sabuj-goluis-projects.vercel.app//api",
   cors()
 );
 
