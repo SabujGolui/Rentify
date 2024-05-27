@@ -20,6 +20,10 @@ app.use("/", (req, res) => {
 });
 
 app.options("/api", cors());
+app.options(
+  "https://rentify-server-hfea6kyyj-sabuj-goluis-projects.vercel.app/api",
+  cors()
+);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
