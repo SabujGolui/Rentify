@@ -13,12 +13,9 @@ app.use(cors()); // Use cors middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", apiRoutes);
-app.use("/", (res, req) => {
-  res.send("Sever in running");
-});
+app.use("/api", apiRoutes);
 
-app.options("/", cors());
+app.options("/api", cors());
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
