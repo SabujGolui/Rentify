@@ -60,15 +60,6 @@ const UpdateProperty = ({ students }) => {
     <div>
       <div className="min-vh-100">
         <Navbar />
-        {Loader == true && (
-          <div className="text-center pt-5 z-3 position-relative">
-            <div
-              className="spinner-border"
-              style={{ width: "3rem", height: "3rem", color: "blue" }}
-              role="status"
-            ></div>
-          </div>
-        )}
 
         <div className="container mt-5 mb-5 pb-4">
           <form className="row g-3" id="myForm" onSubmit={handleSubmit}>
@@ -121,7 +112,7 @@ const UpdateProperty = ({ students }) => {
                 Bathroom
               </label>
               <input
-                 type="number"
+                type="number"
                 className="form-control"
                 id="inputPassword4"
                 name="bathroom"
@@ -147,9 +138,22 @@ const UpdateProperty = ({ students }) => {
               />
             </div>
             <div className="col-12">
-              <button type="submit" className="btn btn-primary">
-                Update
-              </button>
+              {Loader == true ? (
+                <>
+                  <button className="btn btn-primary" type="button" disabled>
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Updating
+                  </button>
+                </>
+              ) : (
+                <button type="submit" className="btn btn-primary">
+                  Update
+                </button>
+              )}
             </div>
           </form>
           <ToastContainer />

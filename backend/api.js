@@ -8,8 +8,8 @@ dotenv.config();
 const router = express.Router();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+  connectionString: process.env.POSTGRES_URL,
+})
 
 router.post("/userlogin", async (req, res) => {
   try {

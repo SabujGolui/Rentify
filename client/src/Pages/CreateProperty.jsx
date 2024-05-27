@@ -44,16 +44,6 @@ export default function CreateProperty() {
     <div>
       <div className="min-vh-100">
         <Navbar />
-        {Loader == true && (
-          <div className="text-center pt-5 z-3 position-relative">
-            <div
-              className="spinner-border"
-              style={{ width: "3rem", height: "3rem", color: "blue" }}
-              role="status"
-            ></div>
-          </div>
-        )}
-
         {/* {successMessage && <Alert variant="success">{successMessage}</Alert>} */}
         <div className="container mt-5 mb-5 pb-4">
           <form className="row g-3" id="myForm" onSubmit={handleSubmit}>
@@ -132,9 +122,22 @@ export default function CreateProperty() {
               />
             </div>
             <div className="col-12">
-              <button type="submit" className="btn btn-primary">
-                Save
-              </button>
+              {Loader == true ? (
+                <>
+                  <button className="btn btn-primary" type="button" disabled>
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Saving
+                  </button>
+                </>
+              ) : (
+                <button type="submit" className="btn btn-primary">
+                  Save
+                </button>
+              )}
             </div>
           </form>
           <ToastContainer />
